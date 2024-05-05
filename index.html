@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <main>
+        <input>
+        <button>Verifica</button>
+    </main>
+    <script>
+        let input = document.querySelector('input');
+        input.focus();
+
+        let botao = document.querySelector('button');
+        let secret = parseInt(Math.random() * 10);
+        console.log(secret);
+
+        botao.onclick = () => {
+            if(input.value == secret) {
+                alert("Voce Acertou!")
+            } else {
+                alert("Voce Errou!")
+            }
+            input.focus();
+        }
+    </script>
+</body>
+
+</html>
