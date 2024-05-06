@@ -15,15 +15,33 @@
         input.focus();
 
         let botao = document.querySelector('button');
-        let secret = parseInt(Math.random() * 10);
+
+
+        function sorteiaNum(num) {
+            let result = new Array(11).fill(false);
+            let i = 0;
+            while (i < num) {
+                let random = Math.round(Math.random() * 9) + 1;
+                if (!result[random]) {
+                    i++;
+                }
+                result[random] = true;
+            }
+            return result;
+        }
+
+        let secret = sorteiaNum(1);
+
         console.log(secret);
 
         botao.onclick = () => {
-            if(input.value == secret) {
-                alert("Voce Acertou!")
+            if (secret[input.value]) {
+                alert("Voce Acertou! ✅")
+
             } else {
-                alert("Voce Errou!")
+                alert("Voce Errou! ❌")
             }
+            input.value = "";
             input.focus();
         }
     </script>
